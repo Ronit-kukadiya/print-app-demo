@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrintQ Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-dot"></div>
+        <span>PrintQ</span>
+      </div>
+      <nav class="nav-list">
+        <li class="nav-item active" data-section="queue">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span>Queue</span>
+        </li>
+        <li class="nav-item" data-section="history">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>History</span>
+        </li>
+        <li class="nav-item" data-section="analytics">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 20V10"></path>
+            <path d="M12 20V4"></path>
+            <path d="M6 20v-6"></path>
+          </svg>
+          <span>Analytics</span>
+        </li>
+        <li class="nav-item" data-section="machines">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path
+              d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"
+            ></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>Machines</span>
+        </li>
+        <li class="nav-item" data-section="pricing">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+            ></path>
+            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+          </svg>
+          <span>Pricing</span>
+        </li>
+      </nav>
+      <div id="sidebarActivity" class="sidebar-activity">
+        <!-- Recent activity will be injected here -->
+      </div>
+      <div class="nav-profile">
+        <div class="nav-item" data-section="profile">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Profile</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-wrapper">
+      <!-- Header -->
+      <header class="header">
+        <div class="brand">
+          PrintQ <span class="store-name">Demo Store</span>
+        </div>
+        <div class="header-actions">
+          <button class="btn-icon" id="darkModeToggle">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="btn-icon" id="notificationBtn">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span
+              id="notificationBadge"
+              style="
+                display: none;
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                width: 8px;
+                height: 8px;
+                background: var(--danger);
+                border-radius: 50%;
+              "
+            ></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="label-small">Pages Printed Today:</span>
+          <span class="stat-value" id="statPages">0</span>
+        </div>
+        <div class="divider"></div>
+        <div class="stat-item">
+          <span class="label-small">Normal Queue:</span>
+          <span class="stat-value" id="statNormalQueue">0 docs</span>
+        </div>
+        <div class="divider"></div>
+        <div class="stat-item">
+          <span class="label-small">Priority Queue:</span>
+          <span class="stat-value" id="statPriorityQueue">0 / 5 slots</span>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="content-area" id="mainContent">
+        <!-- Sections will be injected here via app.js -->
+      </div>
+    </main>
+
+    <!-- Notification Drawer -->
+    <div class="notification-drawer" id="notificationDrawer">
+      <div class="drawer-header">
+        <span class="brand">Notifications</span>
+        <button class="btn-icon" id="closeDrawer">✕</button>
+      </div>
+      <div class="drawer-content" id="notificationList">
+        <!-- Notifications go here -->
+      </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
